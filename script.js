@@ -19,7 +19,7 @@ function loadAssets(callback) {
     characterImage1.onload = function () {
       characterImage2.src = 'character2.png'; // Remplacer par le chemin de votre seconde image de personnage
       characterImage2.onload = function () {
-        floorImage.src = 'lavafloor.png'; // Remplacer par le chemin de votre image de sol
+        floorImage.src = 'vagues.png'; // Remplacer par le chemin de votre image de sol
         floorImage.onload = function () {
           explosionImage.src = 'fireexplosion.png'; // Remplacer par le chemin de votre image d'explosion
           explosionImage.onload = function () {
@@ -508,8 +508,8 @@ function detectPlatformCollision() {
 }
 
   function drawFloor() {
-    const tileWidth = floorImage.width;
-    const tileHeight = floorImage.height;
+    const tileWidth = floorImage.width / 2;
+    const tileHeight = floorImage.height / 2;
     const numTiles = Math.ceil(canvas.width / tileWidth) + 1;
 
     const startX = Math.floor(camera.x / tileWidth) * tileWidth;
@@ -518,7 +518,7 @@ function detectPlatformCollision() {
       ctx.drawImage(
         floorImage,
         startX + i * tileWidth,
-        canvas.height - 50,
+        canvas.height - 275,
         tileWidth,
         tileHeight
       );
