@@ -518,7 +518,7 @@ function detectPlatformCollision() {
       ctx.drawImage(
         floorImage,
         startX + i * tileWidth,
-        canvas.height - 275,
+        canvas.height - 140,
         tileWidth,
         tileHeight
       );
