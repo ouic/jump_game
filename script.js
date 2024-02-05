@@ -21,7 +21,7 @@ function loadAssets(callback) {
       characterImage2.onload = function () {
         floorImage.src = 'lavafloor.png'; // Remplacer par le chemin de votre image de sol
         floorImage.onload = function () {
-          explosionImage.src = 'T-fireexplosion.png'; // Remplacer par le chemin de votre image d'explosion
+          explosionImage.src = 'fireexplosion.png'; // Remplacer par le chemin de votre image d'explosion
           explosionImage.onload = function () {
             callback();
           };
