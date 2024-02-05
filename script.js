@@ -8,16 +8,20 @@ let characterImage1 = new Image();
 let characterImage2 = new Image();
 let floorImage = new Image();
 let explosionImage = new Image(); // Add explosionImage variable here
+
 function loadAssets(callback) {
-  backgroundImage.src = 'gamebackground2.png';
+  // Sélection aléatoire du fond d'écran
+  let backgroundImagePath = Math.random() < 0.5 ? 'gamebackground1.png' : 'gamebackground2.png';
+
+  backgroundImage.src = backgroundImagePath;
   backgroundImage.onload = function () {
-    characterImage1.src = 'character1.png'; // Replace with the path to your first character image
+    characterImage1.src = 'character1.png'; // Remplacer par le chemin de votre première image de personnage
     characterImage1.onload = function () {
-      characterImage2.src = 'character2.png'; // Replace with the path to your second character image
+      characterImage2.src = 'character2.png'; // Remplacer par le chemin de votre seconde image de personnage
       characterImage2.onload = function () {
-        floorImage.src = 'lavafloor.png'; // Replace with the path to your floor tile image
+        floorImage.src = 'lavafloor.png'; // Remplacer par le chemin de votre image de sol
         floorImage.onload = function () {
-          explosionImage.src = 'T-fireexplosion.png'; // Replace with the path to your explosion image
+          explosionImage.src = 'T-fireexplosion.png'; // Remplacer par le chemin de votre image d'explosion
           explosionImage.onload = function () {
             callback();
           };
@@ -26,6 +30,7 @@ function loadAssets(callback) {
     };
   };
 }
+
 
 const camera = {
   x: 0,
@@ -634,12 +639,14 @@ window.addEventListener('keydown', (event) => {
 
 canvas.addEventListener('click', (event) => {
   if (gameOver) {
+    loadAssets();
     resetGame();
   }
 });
 
 window.addEventListener('keydown', function (event) {
   if (event.code === 'Space' && gameOver) {
+    loadAssets();
     resetGame();
   }
 });
