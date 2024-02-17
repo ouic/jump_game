@@ -11,17 +11,17 @@ let explosionImage = new Image(); // Add explosionImage variable here
 
 function loadAssets(callback) {
   // Sélection aléatoire du fond d'écran
-  let backgroundImagePath = Math.random() < 0.5 ? 'gamebackground1.png' : 'gamebackground2.png';
+  let backgroundImagePath = Math.random() < 0.5 ? 'images/fond1.png' : 'images/fond2.png';
 
   backgroundImage.src = backgroundImagePath;
   backgroundImage.onload = function () {
-    characterImage1.src = 'character1.png'; // Remplacer par le chemin de votre première image de personnage
+    characterImage1.src = 'images/personnage1.png'; // Remplacer par le chemin de votre première image de personnage
     characterImage1.onload = function () {
-      characterImage2.src = 'character2.png'; // Remplacer par le chemin de votre seconde image de personnage
+      characterImage2.src = 'images/personnage2.png'; // Remplacer par le chemin de votre seconde image de personnage
       characterImage2.onload = function () {
-        floorImage.src = 'vagues.png'; // Remplacer par le chemin de votre image de sol
+        floorImage.src = 'images/vagues.png'; // Remplacer par le chemin de votre image de sol
         floorImage.onload = function () {
-          explosionImage.src = 'fireexplosion.png'; // Remplacer par le chemin de votre image d'explosion
+          explosionImage.src = 'images/explosion.png'; // Remplacer par le chemin de votre image d'explosion
           explosionImage.onload = function () {
             callback();
           };
@@ -566,9 +566,17 @@ function drawRoundedRectangle(x, y, width, height, radius, fillColor, strokeColo
   }
 }
 
+function updateScores(newScores) {
+  localStorage.setItem('scores', JSON.stringify(newScores));
+}
+
+function loadScores() {
+  return JSON.parse(localStorage.getItem('scores')) || [];
+}
+
 function drawGameOverAndReset() {
   if (gameOver) {
-    ctx.fillStyle = 'red';
+    ctx.fillStyle = 'white';
     ctx.font = '40px Arial';
     ctx.fillText('Game Over', canvas.width / 2 - 100, canvas.height / 2);
 

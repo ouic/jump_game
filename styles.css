@@ -11,3 +11,20 @@ canvas {
   width: 100vw;
   height: 99.5vh;
 }
+
+#scoresContainer li {
+  font-size: 100px;  /* Ajustez selon les besoins */
+  color: #ffffff;  /* Choisissez une couleur qui contraste bien avec l'arrière-plan */
+}
+
+#scoresContainer {
+  position: absolute;  /* ou 'relative' en fonction de la structure de votre page */
+  display: none;  /* Cache le conteneur par défaut */
+  top: 50%;  /* Ajustez selon les besoins */
+  left: 50%;
+  transform: translate(-50%, -50%);  /* Pour centrer exactement le div */
+  z-index: 1000;  /* Assurez-vous qu'il est au-dessus des autres éléments */
+  background-color: rgba(0, 0, 0, 0.5);    /* Fond semi-transparent noir */
+    padding: 20px;    /* Ajoute de l'espace autour du texte */
+    border-radius: 10px;    /* Bordures arrondies pour le conteneur */
+}
